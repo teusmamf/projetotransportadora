@@ -1,12 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import CalculationPage from './pages/create_report_freight'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>teste</h1>
+      <CalculationPage/>
     </>
   )
 }
