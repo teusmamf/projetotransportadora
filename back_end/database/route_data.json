@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "acidentes": 1,
+      "obras": 3,
+      "transito": 2,
+      "status": "obstruída"
+    },
+    {
+      "id": 2,
+      "acidentes": 0,
+      "obras": 0,
+      "transito": 1,
+      "status": "rota sem obstáculos"
+    },
+    {
+      "id": 3,
+      "acidentes": 2,
+      "obras": 1,
+      "transito": 3,
+      "status": "moderado"
+    }
+  ]
+  

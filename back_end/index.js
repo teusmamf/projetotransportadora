@@ -5,6 +5,7 @@ const citiesRouter = require('./routers/citiesRouter.js');
 const modalsRouter = require('./routers/modaisRouter.js');
 const prductsRouter = require('./routers/produtcsRouter.js');
 const calculoRouter = require('./routers/calculoRouter.js');
+const pathsRouter = require('./routers/pathsRouter.js');
 
 
 const app = express();
@@ -25,6 +26,8 @@ app.use('/api_transportadora/products', prductsRouter);
 console.log("Rotas calculo prontas.");
 app.use('/api_transportadora/calculo', calculoRouter);
 
+console.log("Rotas calculo prontas.");
+app.use('/api_transportadora/rotas', pathsRouter);
 
 app.get('/health', (req,res)=> {
     res.json({status: 'API FUNCIONANDO COM SUCESSO'})

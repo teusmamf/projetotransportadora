@@ -5,17 +5,26 @@ body {
   padding: 0;
   background-color: #f4f4f9;
   color: #333;
+  display: flex;
   justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
 
 }
 
 .calculation-page {
-  max-width: 100%;
-  max-height: 100%;
+  width: 200vh;
+  height: 100vh;
   padding: 20px;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 h1 {
@@ -27,10 +36,11 @@ h1 {
 /* Dropdowns e botão */
 .dropdowns {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   gap: 15px;
   margin-bottom: 20px;
+  width: 80%;
 }
 
 .dropdown {
@@ -74,6 +84,7 @@ h1 {
 /* Resultados */
 .results {
   margin-top: 30px;
+  width: 80%;
 }
 
 .results h2 {
@@ -106,4 +117,189 @@ h1 {
 
 .results tr:hover {
   background-color: #f1f1f1;
+}
+
+
+.map-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 8px 52px 10px rgba(26,81,219,0.75);
+  -webkit-box-shadow: 0px 8px 52px 10px rgba(26,81,219,0.75);
+  -moz-box-shadow: 0px 8px 52px 10px rgba(26,81,219,0.75);
+}
+
+.state {
+  fill: #d6d6da;
+  stroke: #fff;
+  stroke-width: 0.5;
+  transition: fill 0.2s ease-in-out;
+}
+
+.state:hover {
+  fill: #3498db;
+  cursor: pointer;
+}
+
+.selected-state {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.route-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.confirm-route-button {
+  padding: 12px 20px;
+  background-color: #e67e22;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.confirm-route-button:hover {
+  background-color: #d35400;
+}
+
+.map-container {
+  width: 80%;
+  height: 400px;
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.route-info {
+  margin-top: 10px;
+  padding: 10px;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  text-align: left; /* Alinha os textos à esquerda */
+  font-size: 14px;
+}
+
+
+.route-info p {
+  font-size: 16px;
+  color: #333;
+  margin: 5px 0;
+}
+
+
+.calculation-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.dropdowns {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  flex: 1;
+}
+
+.calculate-button {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.calculate-button:hover {
+  background-color: #2980b9;
+}
+
+.maps-section {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.map-container {
+  flex: 1;
+  min-width: 450px;
+  height: 450px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fafafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.map-container h3 {
+  text-align: center;
+  margin: 10px 0;
+  color: #333;
+}
+
+.results {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.results table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  background: #fff;
+}
+
+.results th, .results td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.results th {
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
 }
