@@ -14,7 +14,7 @@ const CalculationPage = () => {
 
     const handleCalculate = async () => {
         try {
-            const response = await axios.post("http://localhost:3000/api_transportadora/calculo/calcular_risco", {
+            const response = await axios.post("https://projetotransportadoraback.vercel.app/api_transportadora/calculo/calcular_risco", {
                 origemCidade: originCity.split("-")[0].trim(),
                 origemUf: originCity.split("-")[1]?.trim(),
                 destinoCidade: destinationCity.split("-")[0].trim(),
@@ -46,25 +46,25 @@ const CalculationPage = () => {
             <div className="dropdowns">
                 <Dropdown
                     label="Cidade Origem"
-                    apiEndpoint="http://localhost:3000/api_transportadora/cities/get_origin_city"
+                    apiEndpoint="https://projetotransportadoraback.vercel.app/api_transportadora/cities/get_origin_city"
                     onChange={setOriginCity}
                 />
 
                 <Dropdown
                     label="Cidade Destino"
-                    apiEndpoint="http://localhost:3000/api_transportadora/cities/get_all_destiny_cities"
+                    apiEndpoint="https://projetotransportadoraback.vercel.app/api_transportadora/cities/get_all_destiny_cities"
                     onChange={setDestinationCity}
                 />
 
                 <Dropdown
                     label="Modal"
-                    apiEndpoint="http://localhost:3000/api_transportadora/modals/get_all_modals"
+                    apiEndpoint="https://projetotransportadoraback.vercel.app/api_transportadora/modals/get_all_modals"
                     onChange={setModal}
                 />
 
                 <Dropdown
                     label="Produto"
-                    apiEndpoint="http://localhost:3000/api_transportadora/products/get_all_proucts"
+                    apiEndpoint="https://projetotransportadoraback.vercel.app/api_transportadora/products/get_all_proucts"
                     onChange={setProduct}
                 />
             </div>
