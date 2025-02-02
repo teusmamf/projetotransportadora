@@ -3,6 +3,7 @@ import axios from "axios";
 import Dropdown from "../components/dropdown";
 import BrazilMap from "../components/brasilmap";
 import RouteButton from "../components/route_btn";
+import ViewLocalButton from "../components/Viewaccident";
 
 const CalculationPage = () => {
     const [originCity, setOriginCity] = useState('');
@@ -78,12 +79,17 @@ const CalculationPage = () => {
                     <BrazilMap />
                 </div>
                 <div className="map-container">
-                    <h3>Rota Selecionada</h3>
+                    <p>Rota Selecionada</p>
                     <RouteButton origin={originCity} destination={destinationCity} />
                 </div>
             </div>
-
+          
             <div className="results">
+            <ViewLocalButton
+  show={result && (result.acidentes > 0 || result.obras > 0)}
+  routeData={result}
+/>
+
                 <h2>Resultados</h2>
                 {result ? (
                     <table>
@@ -112,6 +118,7 @@ const CalculationPage = () => {
                     <p>Aguardando cálculo...</p>
                 )}
             </div>
+            
         </div>
     );
 };
