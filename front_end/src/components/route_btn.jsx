@@ -18,7 +18,7 @@ const RouteButton = ({ origin, destination }) => {
 
   const handleConfirmRoute = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api_transportadora/rotas/get_route_status');
+      const response = await axios.get('https://projetotransportadoraback.vercel.app/api_transportadora/rotas/get_route_status');
       setRouteData(response.data);
 
       // Simulação de coordenadas entre origem e destino
