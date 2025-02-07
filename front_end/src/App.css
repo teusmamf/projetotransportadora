@@ -1,9 +1,8 @@
-/* Estilos gerais */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Lato", serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
   color: #333;
   display: flex;
   justify-content: center;
@@ -12,10 +11,24 @@ body {
   width: 100vw;
   overflow-x: hidden;
   overflow-y: scroll;
-
+  background-color: #fafafa;
 }
 
+.title_header{
+  margin-bottom: 40px;
+}
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
 
+.logo {
+  width:20%;
+  height: auto;
+  margin-right: 10px;
+}
 
 h1 {
   text-align: center;
@@ -153,10 +166,11 @@ h1 {
 
 .confirm-route-button {
   padding: 12px 20px;
-  background-color: #e67e22;
+  width: 30%;
+  background-color: #3222e6;
   color: #ffffff;
   border: none;
-  margin: 0px;
+  margin-bottom: 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
@@ -165,7 +179,8 @@ h1 {
 }
 
 .confirm-route-button:hover {
-  background-color: #d35400;
+  background-color: #ffffff;
+  color: black;
 }
 
 .map-container {
@@ -204,7 +219,7 @@ h1 {
   width: 205vh;
   margin: 0 auto;
   padding: 20px;
-  background-color: #fff;
+  background-color: #fafafa;
 
   
 }
@@ -298,7 +313,7 @@ h1 {
 
 
 .view-local-container {
-  margin-top: 0px;
+  margin-top: 50px;
   margin-bottom: 10px;
   text-align: center;
   display: flex;
@@ -329,3 +344,40 @@ h1 {
   background-color: #d35400;
 }
 
+.confirmation-message {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2ecc71;
+}
+
+.confirmation-icon {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.change-route-button {
+  padding: 12px 20px;
+  width: 30%;
+  background-color: #3222e6;
+  color: #ffffff;
+  border: none;
+  margin: 0px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.change-route-button:hover {
+  background-color: #ffffff;
+  color: black;
+}
+
+.error-message{
+  width: 100%;
+  text-align: center;
+  color: red;
+}

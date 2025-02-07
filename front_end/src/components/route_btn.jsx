@@ -13,6 +13,7 @@ const customIcon = new L.Icon({
 const RouteButton = ({ origin, destination }) => {
   const [routeData, setRouteData] = useState(null);
   const [routeCoords, setRouteCoords] = useState([]);
+  const [routeConfirmed, setRouteConfirmed] = useState(false);
   const mapContainer = useRef(null);
   const mapInstance = useRef(null);
 
@@ -21,10 +22,9 @@ const RouteButton = ({ origin, destination }) => {
       const response = await axios.get('https://projetotransportadoraback.vercel.app/api_transportadora/rotas/get_route_status');
       setRouteData(response.data);
 
-      // Simulação de coordenadas entre origem e destino
       const simulatedCoords = [
-        [-23.5505, -46.6333], // São Paulo
-        [-22.9068, -43.1729]  // Rio de Janeiro
+        [-23.5505, -46.6333], 
+        [-22.9068, -43.1729]  
       ];
       setRouteCoords(simulatedCoords);
     } catch (error) {
@@ -32,23 +32,26 @@ const RouteButton = ({ origin, destination }) => {
     }
   };
 
-  // Inicializa o mapa
+  const handleFinalizeRoute = () => {
+    setRouteConfirmed(true);
+  };
+
+  const handleResetRoute = () => {
+    window.location.reload();
+  };
+
   useEffect(() => {
     if (routeCoords.length > 0 && mapContainer.current && !mapInstance.current) {
-      // Cria o mapa
       mapInstance.current = L.map(mapContainer.current, { attributionControl: false }).setView(routeCoords[0], 6);
 
-      // Adiciona o tile layer
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: 'Map data © OpenStreetMap contributors',
       }).addTo(mapInstance.current);
 
-      // Adiciona os marcadores e a polilinha
-      const markers = routeCoords.map(coord => L.marker(coord, { icon: customIcon }).addTo(mapInstance.current));
-      const polyline = L.polyline(routeCoords, { color: 'blue' }).addTo(mapInstance.current);
+      routeCoords.forEach(coord => L.marker(coord, { icon: customIcon }).addTo(mapInstance.current));
+      L.polyline(routeCoords, { color: 'blue' }).addTo(mapInstance.current);
 
-      // Limpeza ao desmontar
       return () => {
         if (mapInstance.current) {
           mapInstance.current.remove();
@@ -60,18 +63,34 @@ const RouteButton = ({ origin, destination }) => {
 
   return (
     <div className="route-section">
-      <button className="confirm-route-button" onClick={handleConfirmRoute}>
-        Confirmar Rota
-      </button>
+      {!routeConfirmed ? (
+        <>
+          {routeData && routeCoords.length > 0 ? (
+            <>
+              <button className="confirm-route-button" onClick={handleFinalizeRoute}>
+                Confirmar Rota
+              </button>
+              <button className="change-route-button" onClick={handleResetRoute}>
+                Trocar Rota
+              </button>
+            </>
+          ) : (
+            <button className="confirm-route-button" onClick={handleConfirmRoute}>
+              Calcular Rota
+            </button>
+          )}
+        </>
+      ) : (
+        <div className="confirmation-message">
+          <p>ROTA CONFIRMADA</p>
+          <span className="confirmation-icon">✔️</span>
+        </div>
+      )}
 
       {routeData && routeCoords.length > 0 && (
         <div className="map-container">
           <p>Rota de {origin} para {destination}</p>
-          <div
-            ref={mapContainer}
-            style={{ height: '200px', width: '100%' }}
-          ></div>
-
+          <div ref={mapContainer} style={{ height: '200px', width: '100%' }}></div>
           <div className="route-info">
             <p><strong>Acidentes:</strong> {routeData.acidentes}</p>
             <p><strong>Obras:</strong> {routeData.obras}</p>
