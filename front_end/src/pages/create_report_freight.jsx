@@ -37,7 +37,7 @@ const CalculationPage = () => {
         <div className="calculation-page">
             <div className="header-section">
                 <img src={logo} alt="TrackShield Logo" className="logo" />
-                <h1 className="title_header">Analisador de Frete e Sinistro </h1>
+                <h1 className="title_header">Analisador de Frete e Sinistro</h1>
             </div>
 
             <div className="dropdowns">
